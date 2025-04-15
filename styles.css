@@ -109,9 +109,10 @@ h1 {
 
 #taskInput {
     flex: 2;
+    margin: 5px;
     padding: 10px 15px;
     border: 1px solid var(--input-border);
-    border-radius: 4px 0 0 4px;
+    border-radius: 5px;
     font-size: 16px;
     outline: none;
     background-color: var(--input-bg);
@@ -121,6 +122,7 @@ h1 {
 
 .due-date-input {
     flex: 1;
+    margin: 5px;
     padding: 10px 15px;
     border: 1px solid var(--input-border);
     border-left: none;
@@ -138,11 +140,12 @@ h1 {
 }
 
 #addTaskBtn {
+    margin: 5px;
     padding: 10px 15px;
     background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 0 4px 4px 0;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;

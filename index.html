@@ -18,26 +18,77 @@
             </button>
         </div>
         
+        <!-- Step 1: Initial input section -->
         <div class="input-container">
-            <input type="text" id="taskInput" placeholder="Add a new task...">
-            <input type="text" id="dueDateInput" class="due-date-input" placeholder="Due date">
-            <button id="addTaskBtn"><i class="fas fa-plus"></i></button>
+            <input type="text" id="taskTitleInput" placeholder="Enter task title...">
+            <button id="addTaskBtn"><i class="fas fa-plus"></i> Add Task</button>
         </div>
 
-        <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="active">Active</button>
-            <button class="filter-btn" data-filter="completed">Completed</button>
-            <button class="filter-btn" data-filter="overdue">Overdue</button>
+        <!-- Step 2: Task creation popup (hidden by default) -->
+        <div id="taskPopup" class="task-popup">
+            <div class="popup-content">
+                <h2>Create New Task</h2>
+                <div class="form-group">
+                    <label for="popupTaskTitle">Task Title</label>
+                    <input type="text" id="popupTaskTitle" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="taskDetails">Task Details</label>
+                    <textarea id="taskDetails" placeholder="Enter task details..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="taskDueDate">Due Date</label>
+                    <input type="text" id="taskDueDate" class="due-date-input" placeholder="Select due date">
+                </div>
+                <div class="form-group">
+                    <label>Priority</label>
+                    <div class="priority-options">
+                        <label class="priority-option">
+                            <input type="radio" name="priority" value="low" checked>
+                            <span class="priority-label low">Low</span>
+                        </label>
+                        <label class="priority-option">
+                            <input type="radio" name="priority" value="medium">
+                            <span class="priority-label medium">Medium</span>
+                        </label>
+                        <label class="priority-option">
+                            <input type="radio" name="priority" value="high">
+                            <span class="priority-label high">High</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="popup-buttons">
+                    <button id="cancelTaskBtn">Cancel</button>
+                    <button id="submitTaskBtn">Create Task</button>
+                </div>
+            </div>
         </div>
 
+        <!-- Sorting options -->
+        <div class="sort-container">
+            <label for="sortBy">Sort By:</label>
+            <select id="sortBy">
+                <option value="dueDate">Due Date</option>
+                <option value="priority">Priority</option>
+                <option value="status">Status</option>
+                <option value="creationDate">Creation Date</option>
+            </select>
+        </div>
+
+        <!-- Task list -->
         <ul id="taskList">
             <!-- Tasks will be added here dynamically -->
         </ul>
 
+        <!-- Task statistics -->
         <div class="task-stats">
             <span id="tasksLeft">0 tasks left</span>
-            <button id="clearCompleted">Clear Completed</button>
+            <div class="status-filter">
+                <button class="status-btn active" data-status="all">All</button>
+                <button class="status-btn" data-status="incomplete">Incomplete</button>
+                <button class="status-btn" data-status="in-progress">In Progress</button>
+                <button class="status-btn" data-status="completed">Completed</button>
+            </div>
         </div>
     </div>
 
